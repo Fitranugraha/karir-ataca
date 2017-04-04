@@ -1,26 +1,24 @@
-class ProfilePolicy
-  attr_reader :user, :profile
-
-  def initialize(user, profile)
-    @user = user
-    @profile = profile
+class Profile < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      #scope.where(published: true).or(scope.where(user_id: @user.try(:id)))
+      scope.where(user_id: @user.try(:id))
+    end
   end
 
-  def index?
-    user.admin?
-  end
+  def new? ; user_is_owner_of_record? ; end
+  def create? ; user_is_owner_of_record? ; end
 
   def show?
-    user.admin? or user.profile==@profile
+    user_is_owner_of_record? || @record.published
   end
 
-  def update?
-    @user.admin?
-  end
+  def update? ; user_is_owner_of_record? ; end
+  def destroy? ; user_is_owner_of_record? ; end
 
-  def destroy?
-    return false if @current_user == @user
-    @current_user.admin?
-  end
+  private
 
+  def user_is_owner_of_record?
+    @user == @record.user
+  end
 end

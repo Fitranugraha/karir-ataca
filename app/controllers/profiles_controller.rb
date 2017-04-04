@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy] 
+before_action :set_profile, only: [:show, :edit, :update, :destroy] 
 
 before_action :authenticate_user!
 after_action :verify_authorized
@@ -8,8 +8,9 @@ after_action :verify_authorized
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
-    authorize Profile
+    #@profiles = Profile.all
+    #authorize Profile
+    @profiles = policy_scope(Profile)
   end
 
   # GET /profiles/1
@@ -18,7 +19,7 @@ after_action :verify_authorized
     #@profile=Profile.find(params[:id])
     #authorize @profile
 
-     scope.where(:id => profile.id).exists?
+    #scope.where(:id => profile.id).exists?
 
   end
 
