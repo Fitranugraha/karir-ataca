@@ -1,112 +1,116 @@
-<%= form_for(profile) do |f| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<div class="authform">
+  <%= form_for(profile) do |f| %>
+    <% if profile.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
-      <ul>
-      <% profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, "Nama Lengkap" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :user_id %>
+      <%= f.number_field :user_id %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :id_no, "No KTP/SIM/Passport" %>
+      <%= f.text_field :id_no, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :nationality, "Kebangsaan" %>
+      <%= f.text_field :nationality, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tribe %>
+      <%= f.text_field :tribe %>
+    </div>
+    <fieldset>
+    <div class="field">
+      <%= f.label :birth_place %>
+      <%= f.text_field :birth_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label :birth_date %>
+      <%= f.date_select :birth_date %>
+    </div>
+    </fieldset>
+
+    <div class="field">
+      <%= f.label :age %>
+      <%= f.number_field :age %>
+    </div>
+
+    <div class="field">
+      <%= f.label :height %>
+      <%= f.text_field :height %>
+    </div>
+
+    <div class="field">
+      <%= f.label :weight %>
+      <%= f.text_field :weight %>
+    </div>
+
+    <div class="field">
+      <%= f.label :blood %>
+      <%= f.text_field :blood %>
+    </div>
+
+    <div class="field">
+      <%= f.label :sex %>
+      <%= f.number_field :sex %>
+    </div>
+
+    <div class="field">
+      <%= f.label :married %>
+      <%= f.number_field :married %>
+    </div>
+
+    <div class="field">
+      <%= f.label :religion %>
+      <%= f.text_field :religion %>
+    </div>
+
+    <div class="field">
+      <%= f.label :id_address %>
+      <%= f.text_area :id_address, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_address %>
+      <%= f.text_area :current_address, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control"%>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone %>
+      <%= f.text_field :phone %>
+    </div>
+
+    <div class="field">
+      <%= f.label :mobile_phone %>
+      <%= f.text_field :mobile_phone %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :id_no %>
-    <%= f.text_field :id_no %>
-  </div>
-
-  <div class="field">
-    <%= f.label :nationality %>
-    <%= f.text_field :nationality %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tribe %>
-    <%= f.text_field :tribe %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birth_place %>
-    <%= f.text_field :birth_place %>
-  </div>
-
-  <div class="field">
-    <%= f.label :birth_date %>
-    <%= f.date_select :birth_date %>
-  </div>
-
-  <div class="field">
-    <%= f.label :age %>
-    <%= f.number_field :age %>
-  </div>
-
-  <div class="field">
-    <%= f.label :height %>
-    <%= f.text_field :height %>
-  </div>
-
-  <div class="field">
-    <%= f.label :weight %>
-    <%= f.text_field :weight %>
-  </div>
-
-  <div class="field">
-    <%= f.label :blood %>
-    <%= f.text_field :blood %>
-  </div>
-
-  <div class="field">
-    <%= f.label :sex %>
-    <%= f.number_field :sex %>
-  </div>
-
-  <div class="field">
-    <%= f.label :married %>
-    <%= f.number_field :married %>
-  </div>
-
-  <div class="field">
-    <%= f.label :religion %>
-    <%= f.text_field :religion %>
-  </div>
-
-  <div class="field">
-    <%= f.label :id_address %>
-    <%= f.text_area :id_address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_address %>
-    <%= f.text_area :current_address %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.label :mobile_phone %>
-    <%= f.text_field :mobile_phone %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

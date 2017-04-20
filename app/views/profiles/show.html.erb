@@ -1,99 +1,101 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
+ <%= current_user.name %>
 
-<p>
-  <strong>User:</strong>
-  <%= @profile.user_id %>
-</p>
 
-<p>
-  <strong>Id no:</strong>
-  <%= @profile.id_no %>
-</p>
+<h1> <%= @profile.name %> </h1>
 
-<p>
-  <strong>Nationality:</strong>
-  <%= @profile.nationality %>
-</p>
 
-<p>
-  <strong>Tribe:</strong>
-  <%= @profile.tribe %>
-</p>
 
-<p>
-  <strong>Birth place:</strong>
-  <%= @profile.birth_place %>
-</p>
 
-<p>
-  <strong>Birth date:</strong>
-  <%= @profile.birth_date %>
-</p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Data Umum</h3>
+    </div>
 
-<p>
-  <strong>Age:</strong>
-  <%= @profile.age %>
-</p>
+      <div class="panel-body">
+        <strong>No. Kartu Identitas</strong> <br>
+        <%= @profile.id_no %> <br> 
+      </div>
 
-<p>
-  <strong>Height:</strong>
-  <%= @profile.height %>
-</p>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @profile.weight %>
-</p>
+      <div class="panel-body">
+        <strong>Tempat Lahir</strong> <br>
+        <%= @profile.birth_place %> <br> 
+        <strong>Tanggal Lahir</strong><br>
+        <%= @profile.birth_date %><br> 
+      </div>
 
-<p>
-  <strong>Blood:</strong>
-  <%= @profile.blood %>
-</p>
 
-<p>
-  <strong>Sex:</strong>
-  <%= @profile.sex %>
-</p>
+      <div class="panel-body">
+        <strong>Kebangsaan</strong> <br>
+        <%= @profile.nationality %> <br> 
+        <strong>Suku</strong><br>
+        <%= @profile.tribe %><br> 
+        <strong>Agama</strong><br>
+        <%= @profile.religion %><br> 
+        <strong>Status Pernikahan</strong><br>
+        <%= @profile.married %> <br>
+      </div>
 
-<p>
-  <strong>Married:</strong>
-  <%= @profile.married %>
-</p>
+      
+      <div class="panel-body">
+        <strong>Jenis Kelamin</strong> <br>
+        <%= @profile.sex %> <br> 
+        <strong>Usia (tahun)</strong> <br>
+        <%= @profile.age %> <br> 
+        <strong>Tinggi Badan (cm)</strong><br>
+        <%= @profile.height %><br>
+        <strong>Berat Badan (cm)</strong><br>
+        <%= @profile.weight %><br>
+        <strong>Golongan Darah</strong><br>
+        <%= @profile.blood %><br>
+      </div>
 
-<p>
-  <strong>Religion:</strong>
-  <%= @profile.religion %>
-</p>
+    </div>
+  </div>
 
-<p>
-  <strong>Id address:</strong>
-  <%= @profile.id_address %>
-</p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Pendidikan Formal</h3>
+    </div>
+    <div class="panel-body">
+      <strong>Menurut Kartu Identitas</strong> <br>
+      <%= @profile.id_address %> <br> 
+      <strong>Alamat Tinggal Sekarang</strong><br>
+      <%= @profile.current_address %>  
+    </div>
+  </div>
 
-<p>
-  <strong>Current address:</strong>
-  <%= @profile.current_address %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @profile.email %>
-</p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Alamat</h3>
+    </div>
+    <div class="panel-body">
+      <strong>Menurut Kartu Identitas</strong> <br>
+      <%= @profile.id_address %> <br> 
+      <strong>Alamat Tinggal Sekarang</strong><br>
+      <%= @profile.current_address %>  
+    </div>
+  </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @profile.phone %>
-</p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Kontak</h3>
+    </div>
+    <div class="panel-body">
+      <strong>Email</strong> <br>
+      <%= @profile.email %> <br> 
+      <strong>Handphone</strong><br>
+      <%= @profile.mobile_phone %> <br>
+      <strong>Telepon Rumah/Perusahaan</strong><br>
+      <%= @profile.phone %>  
+    </div>
+  </div>
 
-<p>
-  <strong>Mobile phone:</strong>
-  <%= @profile.mobile_phone %>
-</p>
+
+
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

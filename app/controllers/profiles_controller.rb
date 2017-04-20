@@ -1,22 +1,26 @@
 class ProfilesController < ApplicationController
 before_action :set_profile, only: [:show, :edit, :update, :destroy] 
 
-before_action :authenticate_user!
-after_action :verify_authorized
+#before_action :authenticate_user!
+#after_action :verify_authorized
 
 
   # GET /profiles
   # GET /profiles.json
   def index
-    #@profiles = Profile.all
+    @profiles = Profile.all
     #authorize Profile
-    @profiles = policy_scope(Profile)
+    #@profiles = policy_scope(Profile)
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    #@profile=Profile.find(params[:id])
+    @profile=Profile.find(params[:id])
+    authorize @profile
+    #@profile=Profile.where(user==current_user)
+
+
     #authorize @profile
 
     #scope.where(:id => profile.id).exists?
@@ -52,6 +56,23 @@ after_action :verify_authorized
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+
+    @profile = Profile.find(params[:id])
+    authorize @profile
+    if @profile.update(profile_params)
+      redirect_to @profile
+    else
+      render :edit
+    end
+
+=begin
+    authorize @profile
+    if @profile.update(profile_params)
+      redirect_to @profile
+    else
+      render :edit
+    end
+
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -61,6 +82,7 @@ after_action :verify_authorized
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # DELETE /profiles/1

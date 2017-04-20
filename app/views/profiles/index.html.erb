@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>User</th>
       <th>Id no</th>
@@ -31,6 +32,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
+        <td><%= profile.id %></td>
         <td><%= profile.name %></td>
         <td><%= profile.user_id %></td>
         <td><%= profile.id_no %></td>
