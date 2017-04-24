@@ -1,0 +1,62 @@
+<%= form_for(formal_education) do |f| %>
+  <% if formal_education.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(formal_education.errors.count, "error") %> prohibited this formal_education from being saved:</h2>
+
+      <ul>
+      <% formal_education.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :level %>
+    <%= f.number_field :level %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :certificate %>
+    <%= f.text_field :certificate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :faculty %>
+    <%= f.text_field :faculty %>
+  </div>
+
+  <div class="field">
+    <%= f.label :department %>
+    <%= f.text_field :department %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_id %>
+    <%= f.text_field :profile_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

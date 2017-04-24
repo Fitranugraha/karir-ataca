@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: MyString
+  start_date: 2017-04-24
+  end_date: 2017-04-24
+  objective: MyText
+  profile: one
+
+two:
+  country: MyString
+  start_date: 2017-04-24
+  end_date: 2017-04-24
+  objective: MyText
+  profile: two

@@ -1,0 +1,45 @@
+  <fieldset>
+    <div class="nested-fields">
+      <div class="form-inline">
+        <div class="form-group">
+          <%= f.label :name, "Nama"%>
+          <%= f.text_field :name, class: "form-control", placeholder: "Nama" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :organizer, "Penyelenggara"%>
+          <%= f.text_field :organizer, class: "form-control", placeholder: "Penyelenggara" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :location, "Tempat (Kota)"%>
+          <%= f.text_field :location, class: "form-control", placeholder: "Tempat Penyelenggaraan" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :year, "Tahun" %>
+          <%= f.date_select :year, { order: [:day, :month, :year], start_year: Date.today.year, end_year: Date.today.year - 70, :discard_day => true, :discard_month => true, include_blank: true   }, { class: "form-control" }%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :certificate, "Sertifikat" %>
+          <%= f.text_field :certificate, class: "form-control", placeholder: "Sertifikat / Tanda Kelulusan" %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :notes , "Catatan" %>
+          <%= f.text_area :notes, class: "form-control", placeholder: "Catatan" %>
+        </div>
+
+
+        <div class="form-group">
+          <%= f.label :destroy, "Hapus"%>
+          <%= link_to_remove_association '', f , class: 'btn btn-sm btn-danger  glyphicon glyphicon-trash' %>  
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+
+        

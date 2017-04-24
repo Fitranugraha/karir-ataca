@@ -35,6 +35,7 @@ before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles/1/edit
   def edit
+    @hash_object={1 => "Lumayan", 2 => "Bagus", 3=> "Sangat Bagus" }
   end
 
   # POST /profiles
@@ -103,6 +104,18 @@ before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name, :user_id, :id_no, :nationality, :tribe, :birth_place, :birth_date, :age, :height, :weight, :blood, :sex, :married, :religion, :id_address, :current_address, :email, :phone, :mobile_phone)
+      params.require(:profile).permit(:name, :user_id, :id_no, :nationality, :tribe, 
+        :birth_place, :birth_date, :age, :height, :weight, :blood, :sex, :married, :religion, 
+        :id_address, :current_address, :email, :phone, :mobile_phone, 
+        languages_attributes: [:id, :name, :speech, :reading, :writing, :note, :_destroy],
+        families_attributes: [:id, :name, :phone, :address, :birth_date, :relation, :education, :job, :_destroy],
+        travellings_attributes: [:id, :country, :start_date, :end_date, :objective, :_destroy],
+        organizations_attributes: [:id, :name, :field, :location, :year, :position, :_destroy],
+        scientific_works_attributes: [:id, :title, :notes, :_destroy],
+        achievements_attributes: [:id, :name, :notes, :_destroy],
+        job_experiences_attributes: [:id, :company_name, :company_address, :company_phone, :job_title, :start_date, :end_date, :job_description, :reason_of_resignation, :_destroy],
+        formal_educations_attributes: [:id, :name, :level, :start_date, :end_date, :certificate, :faculty, :department, :notes, :_destroy],
+        trainings_attributes: [:id, :name, :organizer, :location, :year, :certificate, :notes, :_destroy]
+        )
     end
 end

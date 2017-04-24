@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  level: 1
+  start_date: 2017-04-24
+  end_date: 2017-04-24
+  certificate: MyString
+  faculty: MyString
+  department: MyString
+  notes: MyText
+  profile: one
+
+two:
+  name: MyString
+  level: 1
+  start_date: 2017-04-24
+  end_date: 2017-04-24
+  certificate: MyString
+  faculty: MyString
+  department: MyString
+  notes: MyText
+  profile: two

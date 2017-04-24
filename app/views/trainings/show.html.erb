@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @training.name %>
+</p>
+
+<p>
+  <strong>Organizer:</strong>
+  <%= @training.organizer %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @training.location %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @training.year %>
+</p>
+
+<p>
+  <strong>Certificate:</strong>
+  <%= @training.certificate %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @training.notes %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @training.profile %>
+</p>
+
+<%= link_to 'Edit', edit_training_path(@training) %> |
+<%= link_to 'Back', trainings_path %>

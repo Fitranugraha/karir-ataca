@@ -1,0 +1,40 @@
+  <fieldset>
+    <div class="nested-fields">
+      <div class="form-inline">
+        <div class="form-group">
+          <%= f.label :name, "Organisasi"%>
+          <%= f.text_field :name, class: "form-control", placeholder: "Nama Organisasi" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :field, "Bidang"%>
+          <%= f.text_field :field, class: "form-control", placeholder: "Bidang" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :location, "Lokasi (Kota)"%>
+          <%= f.text_field :location, class: "form-control", placeholder: "Kota" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :year, "Tahun"%>
+          <%= f.text_field :year, class: "form-control", placeholder: "Tahun" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :position, "Posisi"%>
+          <%= f.text_field :position, class: "form-control", placeholder: "Jabatan" %>
+        </div>
+
+
+
+        <div class="form-group">
+          <%= f.label :name, "Hapus"%>
+          <%= link_to_remove_association '', f , class: 'btn btn-sm btn-danger  glyphicon glyphicon-trash' %>  
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+
+        

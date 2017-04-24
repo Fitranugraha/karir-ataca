@@ -12,6 +12,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
@@ -29,6 +30,7 @@ gem 'devise'
 gem 'high_voltage'
 gem 'mysql2', '~> 0.3.18'
 gem 'pundit'
+gem 'cocoon'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'

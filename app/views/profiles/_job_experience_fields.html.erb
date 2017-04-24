@@ -1,0 +1,42 @@
+  <fieldset>
+    <div class="nested-fields">
+      <div class="form-horizontal">
+        <div class="form-group">
+          <%= f.label :company_name, "Perusahaan"%>
+          <%= f.text_field :company_name, class: "form-control", placeholder: "Nama Perusahaan" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :company_address, "Alamat"%>
+          <%= f.text_field :company_address, class: "form-control", placeholder: "Alamat Perusahaan" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date, "Masuk" %>
+          <%= f.date_select :start_date, {}, class: "form-control", placeholder: "Masuk Kerja" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :end_date, "Keluar" %>
+          <%= f.date_select :end_date, {}, class: "form-control", placeholder: "Keluar Kerja" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :job_title, "Posisi/Jabatan"%>
+          <%= f.text_field :job_title, class: "form-control", placeholder: "Posisi/Jabatan" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :job_description, "Deskripsi Pekerjaan"%>
+          <%= f.text_area :job_description, class: "form-control", placeholder: "Deskripsi dan tanggung jawab pekerjaan." %>
+        </div>
+        <div class="form-group">
+          <%= f.label :reason_of_resignation, "Alasan keluar"%>
+          <%= f.text_area :reason_of_resignation, class: "form-control", placeholder: "Alasan keluar" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name, "Hapus"%>
+          <%= link_to_remove_association '', f , class: 'btn btn-sm btn-danger  glyphicon glyphicon-trash' %>  
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+
+        

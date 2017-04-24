@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @formal_education.name %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @formal_education.level %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @formal_education.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @formal_education.end_date %>
+</p>
+
+<p>
+  <strong>Certificate:</strong>
+  <%= @formal_education.certificate %>
+</p>
+
+<p>
+  <strong>Faculty:</strong>
+  <%= @formal_education.faculty %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @formal_education.department %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @formal_education.notes %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @formal_education.profile %>
+</p>
+
+<%= link_to 'Edit', edit_formal_education_path(@formal_education) %> |
+<%= link_to 'Back', formal_educations_path %>

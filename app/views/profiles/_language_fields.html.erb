@@ -1,0 +1,31 @@
+  <fieldset>
+    <div class="nested-fields">
+      <div class="form-inline">
+        <div class="form-group">
+          <%= f.label :name, "Bahasa"%>
+          <%= f.text_field :name, class: "form-control", placeholder: "Bahasa" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name, "Lisan" %>
+          <%= f.collection_select(:speech, LanguageLevel.all, :id, :level, {}, class: "form-control") %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name, "Membaca" %>
+          <%= f.collection_select(:reading, LanguageLevel.all, :id, :level, {}, class: "form-control") %>
+        </div>
+        <div class="form-group">
+          <%= f.label :name, "Menulis"%>
+          <%= f.collection_select(:writing, LanguageLevel.all, :id, :level, {}, {class: "form-control"} ) %>
+  
+
+        </div>
+        <div class="form-group">
+          <%= f.label :name, "Hapus"%>
+          <%= link_to_remove_association '', f , class: 'btn btn-sm btn-danger  glyphicon glyphicon-trash' %>  
+        </div>
+      </div>
+    </div>
+  </fieldset>
+
+
+        

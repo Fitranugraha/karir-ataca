@@ -17,15 +17,25 @@
       <%= f.text_field :name, class: "form-control" %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :user_id %>
-      <%= f.number_field :user_id %>
-    </div>
 
+
+
+<div class="form-horizontal">
+    <fieldset>
     <div class="form-group">
       <%= f.label :id_no, "No KTP/SIM/Passport" %>
       <%= f.text_field :id_no, class: "form-control" %>
     </div>
+
+    <div class="form-group">
+      <%= f.label :id_address, "Alamat Sesuai Kartu Identitas" %>
+      <%= f.text_area :id_address, class: "form-control" %>
+    </div>
+    </fieldset>
+</div>
+
+<div class="form-inline">
+    <fieldset>
 
     <div class="form-group">
       <%= f.label :nationality, "Kebangsaan" %>
@@ -37,7 +47,24 @@
       <%= f.text_field :tribe, class: "form-control" %>
     </div>
 
-    <fieldset>
+    <div class="form-group">
+      <%= f.label :married, "Status Pernikahan" %>
+      <%= f.collection_select(:married, MarriedStatus.all, :id, :name, {:include_blank => 'Please Select'}, {:class => "form-control"}) %>
+
+
+    </div>
+
+    <div class="form-group">
+      <%= f.label :religion, "Agama" %>
+      <%= f.text_field :religion, class: "form-control"   %>
+    </div>
+
+
+    </fieldset>
+</div>
+
+<div class="form-inline">
+  <fieldset>
       <div class="form-group">
         <%= f.label :birth_place, "Tempat Lahir" %>
         <%= f.text_field :birth_place, class: "form-control" %>
@@ -45,73 +72,194 @@
 
       <div class="form-group">
         <%= f.label :birth_date, "Tanggal Lahir" %>
-        <%= f.date_select :birth_date, class: "form-control" %>
+        <%= f.date_select :birth_date, { order: [:day, :month, :year], :start_year => Date.today.year - 12, end_year: Date.today.year - 70 },{:class => "form-control"} %>
       </div>
     </fieldset>
+</div>
 
-
+<div class="form-inline">
+  <fieldset>
     <div class="form-group">
-      <%= f.label :age %>
-      <%= f.number_field :age, class: "form-control" %>
+      <%= f.label :sex, "Kelamin"%>
+      <%= f.collection_select(:sex, Sex.all, :id, :name, {:include_blank => 'Please Select'}, { class: "form-control"}) %>
     </div>
 
     <div class="form-group">
-      <%= f.label :height %>
+      <%= f.label :height, "Tinggi Badan (cm)" %>
       <%= f.text_field :height, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :weight %>
+      <%= f.label :weight, "Berat Badan (kg)" %>
       <%= f.text_field :weight, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= f.label :blood %>
-      <%= f.text_field :blood, class: "form-control" %>
+      <%= f.label :blood, 'Golongan Darah' %>
+      <%= f.collection_select(:blood, Blood.all, :id, :name, {:include_blank => 'Please Select'}, {class: "form-control"}) %>
     </div>
 
-    <div class="form-group">
-      <%= f.label :sex %>
-      <%= f.number_field :sex, class: "form-control" %>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :married %>
-      <%= f.number_field :married, class: "form-control" %>
-    </div>
+    </fieldset>
+</div>
 
-    <div class="form-group">
-      <%= f.label :religion %>
-      <%= f.text_field :religion, class: "form-control"   %>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :id_address %>
-      <%= f.text_area :id_address, class: "form-control" %>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :current_address %>
-      <%= f.text_area :current_address, class: "form-control" %>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.text_field :email, class: "form-control"%>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :phone %>
-      <%= f.text_field :phone, class: "form-control"  %>
-    </div>
 
-    <div class="form-group">
-      <%= f.label :mobile_phone %>
-      <%= f.text_field :mobile_phone, class: "form-control"  %>
+    <fieldset>
+      <h3>Informasi Kontak</h3>
+
+          <div class="form-group">
+            <%= f.label :current_address, "Alamat Tinggal Sekarang" %>
+            <%= f.text_area :current_address, class: "form-control" %>
+          </div>
+
+         
+         <div class="form-inline">
+          <div class="form-group">
+            <%= f.label :email, "email" %>
+            <%= f.text_field :email, class: "form-control"%>
+          </div>
+          <div class="form-group">
+            <%= f.label :phone, "Telpon Rumah/Kantor" %>
+            <%= f.text_field :phone, class: "form-control"  %>
+          </div>
+          <div class="form-group">
+            <%= f.label :mobile_phone, "Telpon Seluler" %>
+            <%= f.text_field :mobile_phone, class: "form-control"  %>
+          </div>
+
+        </div>
+
+    </fieldset>
+
+
+
+
+<fieldset>
+<h3> Informasi Keluarga </h3>
+  <div class="family">
+    <%= f.fields_for :families do |family| %>
+      <%= render 'family_fields', f: family %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :families, class: 'btn btn-primary' %>
     </div>
+  </div>
+</fieldset>
+
+
+<fieldset>
+<h3> Pendidikan Formal </h3>
+  <div class="formal_education">
+    <%= f.fields_for :formal_educations do |formal_education| %>
+      <%= render 'formal_education_fields', f: formal_education %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :formal_educations, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+<h3> Pendidikan Non Formal / Pelatihan </h3>
+  <div class="training">
+    <%= f.fields_for :trainings do |training| %>
+      <%= render 'training_fields', f: training %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :trainings, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+
+
+
+
+<fieldset>
+<h3> Kemampuan Bahasa </h3>
+  <div class="language">
+    <%= f.fields_for :languages do |language| %>
+      <%= render 'language_fields', f: language %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :languages, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+
+
+
+<fieldset>
+<h3> Kunjungan Luar Negeri </h3>
+  <div class="language">
+    <%= f.fields_for :travellings do |travelling| %>
+      <%= render 'travelling_fields', f: travelling %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :travellings, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+
+<fieldset>
+<h3> Pengalaman Organisasi </h3>
+  <div class="language">
+    <%= f.fields_for :organizations do |organization| %>
+      <%= render 'organization_fields', f: organization %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :organizations, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+<h3> Karya Ilmiah</h3>
+  <div class="language">
+    <%= f.fields_for :scientific_works do |scientific_work| %>
+      <%= render 'scientific_work_fields', f: scientific_work %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :scientific_works, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+
+<fieldset>
+<h3>Prestasi</h3>
+  <div class="language">
+    <%= f.fields_for :achievements do |achievement| %>
+      <%= render 'achievement_fields', f: achievement %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :achievements, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+<fieldset>
+<h3>Riwayat Pekerjaan</h3>
+  <div class="job_experience">
+    <%= f.fields_for :job_experiences do |job_experience| %>
+      <%= render 'job_experience_fields', f: job_experience %>   
+    <% end %>
+    <div class="link">
+     <%= link_to_add_association '+', f, :job_experiences, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</fieldset>
+
+
 
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit 'Simpan', class: 'btn btn-primary' %>
     </div>
   <% end %>
 

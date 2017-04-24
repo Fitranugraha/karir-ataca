@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @language.name %>
+</p>
+
+<p>
+  <strong>Speech:</strong>
+  <%= @language.speech %>
+</p>
+
+<p>
+  <strong>Writing:</strong>
+  <%= @language.writing %>
+</p>
+
+<p>
+  <strong>Reading:</strong>
+  <%= @language.reading %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @language.note %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @language.profile %>
+</p>
+
+<%= link_to 'Edit', edit_language_path(@language) %> |
+<%= link_to 'Back', languages_path %>

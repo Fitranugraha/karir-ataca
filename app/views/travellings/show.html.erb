@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @travelling.country %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @travelling.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @travelling.end_date %>
+</p>
+
+<p>
+  <strong>Objective:</strong>
+  <%= @travelling.objective %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @travelling.profile %>
+</p>
+
+<%= link_to 'Edit', edit_travelling_path(@travelling) %> |
+<%= link_to 'Back', travellings_path %>

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @family.name %>
+</p>
+
+<p>
+  <strong>Relation:</strong>
+  <%= @family.relation %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @family.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @family.address %>
+</p>
+
+<p>
+  <strong>Birth date:</strong>
+  <%= @family.birth_date %>
+</p>
+
+<p>
+  <strong>Education:</strong>
+  <%= @family.education %>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @family.job %>
+</p>
+
+<p>
+  <strong>Profile:</strong>
+  <%= @family.profile %>
+</p>
+
+<%= link_to 'Edit', edit_family_path(@family) %> |
+<%= link_to 'Back', families_path %>

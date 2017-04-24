@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  speech: MyString
+  writing: MyString
+  reading: MyString
+  note: MyText
+  profile: one
+
+two:
+  name: MyString
+  speech: MyString
+  writing: MyString
+  reading: MyString
+  note: MyText
+  profile: two
