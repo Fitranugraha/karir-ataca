@@ -1,6 +1,6 @@
   <fieldset>
     <div class="nested-fields">
-      <div class="form-horizontal">
+      <div class="form-inline">
         <div class="form-group">
           <%= f.label :company_name, "Perusahaan"%>
           <%= f.text_field :company_name, class: "form-control", placeholder: "Nama Perusahaan" %>
@@ -9,14 +9,20 @@
           <%= f.label :company_address, "Alamat"%>
           <%= f.text_field :company_address, class: "form-control", placeholder: "Alamat Perusahaan" %>
         </div>
+      </div>
+      <div class = "form-inline">
+
         <div class="form-group">
           <%= f.label :start_date, "Masuk" %>
-          <%= f.date_select :start_date, {}, class: "form-control", placeholder: "Masuk Kerja" %>
+          <%= f.date_select :start_date, { order: [:day, :month, :year], :start_year => Date.today.year - 12, end_year: Date.today.year - 70, include_blank: true },{:class => "form-control"} %>
+
         </div>
         <div class="form-group">
           <%= f.label :end_date, "Keluar" %>
-          <%= f.date_select :end_date, {}, class: "form-control", placeholder: "Keluar Kerja" %>
+          <%= f.date_select :end_date, { order: [:day, :month, :year], :start_year => Date.today.year - 12, end_year: Date.today.year - 70, include_blank: true },{:class => "form-control"} %>
         </div>
+      </div>
+
         <div class="form-group">
           <%= f.label :job_title, "Posisi/Jabatan"%>
           <%= f.text_field :job_title, class: "form-control", placeholder: "Posisi/Jabatan" %>
@@ -37,6 +43,7 @@
       </div>
     </div>
   </fieldset>
+
 
 
         

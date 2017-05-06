@@ -30,6 +30,7 @@ before_action :set_profile, only: [:show, :edit, :update, :destroy]
   # GET /profiles/new
   def new
      @profile = Profile.new
+     @profile.user=current_user
 
   end
 
@@ -42,6 +43,7 @@ before_action :set_profile, only: [:show, :edit, :update, :destroy]
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @profile.user=current_user
 
     respond_to do |format|
       if @profile.save
@@ -57,23 +59,19 @@ before_action :set_profile, only: [:show, :edit, :update, :destroy]
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
-
+=begin
     @profile = Profile.find(params[:id])
     authorize @profile
     if @profile.update(profile_params)
-      redirect_to @profile
+      #redirect_to @profile
+      render :edit, notice: "Profile blah"
     else
       render :edit
     end
+=end
 
-=begin
+
     authorize @profile
-    if @profile.update(profile_params)
-      redirect_to @profile
-    else
-      render :edit
-    end
-
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -83,8 +81,7 @@ before_action :set_profile, only: [:show, :edit, :update, :destroy]
         format.json { render json: @profile.errors, status: :unprocessable_entity }
       end
     end
-=end
-  end
+end
 
   # DELETE /profiles/1
   # DELETE /profiles/1.json

@@ -1,3 +1,5 @@
+
+
 <div class="authform">
   <%= form_for(profile) do |f| %>
     <% if profile.errors.any? %>
@@ -72,7 +74,7 @@
 
       <div class="form-group">
         <%= f.label :birth_date, "Tanggal Lahir" %>
-        <%= f.date_select :birth_date, { order: [:day, :month, :year], :start_year => Date.today.year - 12, end_year: Date.today.year - 70 },{:class => "form-control"} %>
+        <%= f.date_select :birth_date, { order: [:day, :month, :year], :start_year => Date.today.year - 12, end_year: Date.today.year - 70, include_blank: true },{:class => "form-control"} %>
       </div>
     </fieldset>
 </div>
